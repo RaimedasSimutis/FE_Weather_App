@@ -1,0 +1,172 @@
+body {
+    background-color: #F2F3F5;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    
+}
+
+main {
+    position: relative;
+}
+
+.Banner {
+    position: absolute;
+    background-color: #FFFFFF;
+    height: 61px;
+    width: 100%;
+    border-bottom: 1px solid #B8B8B8;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.Banner header {
+    color: #222222;
+    width: 960px;
+    padding: 0 20px;
+    font-size: 24px;
+}
+
+.inputArea {
+    
+    height: 367px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inputArea .inputForm input{
+    width: 755px;
+    height: 64px;
+    font-size: 36px;
+    border: none;
+    border-bottom: 2px solid #B8B8B8;
+    background: none;
+    transition: 600ms;
+    outline: none;
+
+}
+
+.inputArea .inputForm button {
+    box-sizing: content-box;
+    background-color: #F1C2E0;
+    color: #F4F0F5;
+    font-size: 20px;
+    border: 1px solid #F1C2E0;
+    border-radius: 20px;
+    margin-left: 10px;
+    width: 126px;
+    height: 59px;
+    transition: 400ms;
+
+}
+
+.inputArea .inputForm button:hover {
+    background-color: #eb008d;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.inputArea .inputForm input:focus{
+
+    background-color: none;
+    border-bottom: 2px solid blue;
+    
+}
+
+.forecastArea {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    height: 360px;
+    overflow: hidden;
+    transition: all .3s linear;
+
+}
+
+.forecastArea .forecastBox {
+    width: 240px;
+    padding: 18px;
+    margin: 6px;
+    box-shadow: 3px 3px 18px;
+    background: white;
+    border: 1px solid black;
+    position: relative;
+
+}
+
+.forecastArea .forecastBox h2 {
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: 300;
+
+}
+
+.forecastArea .forecastBox img {
+    width: 52px;
+    height: 52px;
+}
+
+.forecastArea .forecastBox p {
+    margin: 12px 0;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.forecastArea .forecastBox .deleteBtn {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 10px;
+
+}
+
+.forecastArea .forecastBox .deleteBtn .deleteBtnLine1, .forecastArea .forecastBox .deleteBtn .deleteBtnLine2 {
+    background-color: #eb008d;
+    width: 18px;
+    height: 3px;
+    transition: 200ms;
+    position: absolute;
+
+}
+
+.forecastArea .forecastBox .deleteBtn:hover .deleteBtnLine1 {
+    transform: rotate(45deg);
+    cursor: pointer;
+    
+}
+
+.forecastArea .forecastBox .deleteBtn:hover .deleteBtnLine2 {
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+
+
+.showMoreBtnContainer {
+    
+    width: 100%;
+    display: none;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0px;
+}
+
+.showMoreBtnContainer .showMoreBtn {
+    width: 100%;
+    
+    height: 30px;
+    border: none;
+    font-size: 20px;
+    background: linear-gradient(rgba(242,243,245,.5),#f2f3f5);
+   
+}
+
