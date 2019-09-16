@@ -7,7 +7,6 @@ const apiKey = '664dc2a980e78df9f61e90ad60eb47cd';
 let forecastBox = {};
 let cityInput;
 
-
 const addForecastBox = (box) => {
     forecastBoxes.push(box);
     //console.log(`Galutinis objektas: ${forecastBoxes}`);
@@ -74,7 +73,6 @@ const generateForecastBoxes = (forecastBoxesArr) => {
         descriptionDiv.textContent = `Description: ${element.description}`;
         humidityDiv.textContent = `Humidity: ${element.humidity}%`;
         dateDiv.textContent = `Retrieved on ${element.date}`;
-        //deleteBtn.textContent = 'x';
 
         //append HTML elements
         forecastBoxDiv.appendChild(cityDiv);
@@ -88,12 +86,8 @@ const generateForecastBoxes = (forecastBoxesArr) => {
         forecastBoxDiv.appendChild(deleteBtn);
         forecastArea.appendChild(forecastBoxDiv);
 
-
         deleteBtn.addEventListener('click', (e) => {
-            //console.log(forecastBoxes);
             forecastBoxDiv.remove();
-
-            //console.log(forecastBoxes);
             forecastBoxes = forecastBoxes.filter(el => el.city !== element.city);
             // forecastBoxes = forecastBoxes.filter(function (params) {
             //     console.log(params.city);
@@ -130,10 +124,6 @@ inputForma.addEventListener("submit", (event) => {
         endpointRequest(cityInput);
     }
 
-    //const note = event.target.elements.note.value
-
-    // addNote(note);
-    //}
 })
 
 const showMoreBtnVisibility = () => {
@@ -145,7 +135,7 @@ const showMoreBtnVisibility = () => {
 }
 
 showMoreBtn.addEventListener("click", () => {
-    console.log("show more suveike");
+    //console.log("show more suveike");
     forecastArea.style.height = `${forecastArea.scrollHeight}px`;
     showMoreBtnContainer.style.display="none";
 })
