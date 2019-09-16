@@ -32,7 +32,6 @@ main {
 }
 
 .inputArea {
-    
     height: 367px;
     display: flex;
     align-items: center;
@@ -48,7 +47,6 @@ main {
     background: none;
     transition: 600ms;
     outline: none;
-
 }
 
 .inputArea .inputForm button {
@@ -62,7 +60,6 @@ main {
     width: 126px;
     height: 59px;
     transition: 400ms;
-
 }
 
 .inputArea .inputForm button:hover {
