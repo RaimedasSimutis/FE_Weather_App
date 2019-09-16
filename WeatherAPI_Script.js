@@ -7,12 +7,29 @@ const apiKey = '664dc2a980e78df9f61e90ad60eb47cd';
 let forecastBox = {};
 let cityInput;
 
-const addForecastBox = (box) => {
-    forecastBoxes.push(box);
-    //console.log(`Galutinis objektas: ${forecastBoxes}`);
-    generateForecastBoxes(forecastBoxes);
-}
+//submitin city name
+inputForma.addEventListener("submit", (event) => {
+    event.preventDefault();
+    cityInput = event.target.elements.cityInput.value;
+    console.log(cityInput);
+    const check = forecastBoxes.find(forecastBox => {
+        return forecastBox.city.toLowerCase() === cityInput.trim().toLowerCase();
+    });
+    
+    if (cityInput ==="") {
+        alert('City not entered');
+    }
 
+    else if (check) {
+        console.log("City is already in the list");
+        alert('City is already in the list');
+    }
+    else {
+        endpointRequest(cityInput);
+    }
+})
+
+//formating API request/response
 const endpointRequest = (city) => {
     let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}`;
 
@@ -20,6 +37,7 @@ const endpointRequest = (city) => {
     .then(function(response){
         return response.json()
     }) 
+
     .then(function(result){
         //console.log(result)
 
@@ -33,8 +51,8 @@ const endpointRequest = (city) => {
         }
 
     addForecastBox(forecastBox);
-
     })
+
     .catch(function(error){
         //console.log(error)
         alert("Ups!... City not found")
@@ -43,6 +61,13 @@ const endpointRequest = (city) => {
     return forecastBox;
 }
 
+//writing forecast info to array
+const addForecastBox = (box) => {
+    forecastBoxes.push(box);
+    generateForecastBoxes(forecastBoxes);
+}
+
+//formating weather card in HTML
 const generateForecastBoxes = (forecastBoxesArr) => {
     forecastArea.innerHTML = '';
     
@@ -89,43 +114,13 @@ const generateForecastBoxes = (forecastBoxesArr) => {
         deleteBtn.addEventListener('click', (e) => {
             forecastBoxDiv.remove();
             forecastBoxes = forecastBoxes.filter(el => el.city !== element.city);
-            // forecastBoxes = forecastBoxes.filter(function (params) {
-            //     console.log(params.city);
-            //     //console.log(forecastBox.city);
-            //console.log(forecastBoxes);
-            // })
-
-            
         })
 
-        
         showMoreBtnVisibility();
-
     });
 }
 
-inputForma.addEventListener("submit", (event) => {
-    event.preventDefault();
-    cityInput = event.target.elements.cityInput.value;
-    console.log(cityInput);
-    const check = forecastBoxes.find(forecastBox => {
-        return forecastBox.city.toLowerCase() === cityInput.trim().toLowerCase();
-    });
-    
-    if (cityInput ==="") {
-        alert('City not entered');
-    }
-
-    else if (check) {
-        console.log("City is already in the list");
-        alert('City is already in the list');
-    }
-    else {
-        endpointRequest(cityInput);
-    }
-
-})
-
+//deciding if show more button should be visible
 const showMoreBtnVisibility = () => {
     if (forecastArea.offsetHeight === forecastArea.scrollHeight) {
         showMoreBtnContainer.style.display="none";
@@ -135,7 +130,6 @@ const showMoreBtnVisibility = () => {
 }
 
 showMoreBtn.addEventListener("click", () => {
-    //console.log("show more suveike");
     forecastArea.style.height = `${forecastArea.scrollHeight}px`;
     showMoreBtnContainer.style.display="none";
 })
